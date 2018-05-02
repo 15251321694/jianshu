@@ -260,10 +260,12 @@ export default {
 }
 .comment-list .new-comment .write-function-block {
   height: 50px;
+  position: relative;
 }
 .comment-list .new-comment .write-function-block .emoji {
-  float: left;
-  margin-top: 14px;
+  /* float: left; */
+  margin-top: 20px;
+  
 }
 .comment-list .new-comment .write-function-block .emoji i {
   font-size: 20px;
@@ -274,7 +276,7 @@ export default {
 }
 .comment-list .new-comment .write-function-block .hint {
   float: left;
-  margin: 18px 0 0 20px;
+  margin: -12px 0 0 35px;
   font-size: 13px;
   color: #969696;
 }
@@ -282,7 +284,7 @@ export default {
   float: right;
   width: 78px;
   padding: 8px 18px;
-  margin: 10px 0;
+  margin: -14px 0;
   display: block;
   font-size: 16px;
   background: #42c02e;
@@ -296,7 +298,7 @@ export default {
 }
 .comment-list .new-comment .write-function-block .btn-cancel {
   float: right;
-  margin: 18px 30px 0 0;
+  margin: -10px 30px 0 0;
   font-size: 16px;
   color: #969696;
 }

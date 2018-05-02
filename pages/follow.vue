@@ -1,38 +1,64 @@
 <template>
-  <div style="height:100%">
+  <div>
       <my-header></my-header>
       <div class="container index">
           <div class="row">
-              <div class="col-xs-16 main">
-                  <!-- 热门专题 -->
-                  <div class="recommend-collection">
-                      <nuxt-link class="collection" to="/collection/123">
-                          <img src="~assets/img/c_1.jpg">
-                          <span name="name">故事</span>
-                      </nuxt-link>
-                      <nuxt-link class="collection" to="/collection/123">
-                          <img src="~assets/img/c_2.jpg">
-                          <span name="name">摄影</span>
-                      </nuxt-link>
-                      <nuxt-link class="collection" to="/collection/123">
-                          <img src="~assets/img/c_3.jpg">
-                          <span name="name">人文社科</span>
-                      </nuxt-link>
-                      <nuxt-link class="collection" to="/collection/123">
-                          <img src="~assets/img/c_4.jpg">
-                          <span name="name">历史</span>
-                      </nuxt-link>
-                      <nuxt-link class="collection" to="/collection/123">
-                          <img src="~assets/img/c_5.jpg">
-                          <span name="name">读书</span>
-                      </nuxt-link>
-                      <nuxt-link class="more-collection" to="/collection/123">
-                          更多热门专题
-                          <i class="fa fa-anglr-right"></i>
-                      </nuxt-link>
-                  </div>
-                  <div class="split-line"></div>
-                  <!-- 文章列表 -->
+            <div class="aside">
+             <div class="follow-title">
+              <v-popover>
+                <a data-toggle="dropdown" class="change-type">
+                   全部关注
+                   <i class="fa fa-circle"></i>
+                </a>
+                  <template slot="popover">
+                    <ul class="dropdown-menu arrow-top">
+                       <li><a>全部关注</a></li>
+                       <li><a>只看作者</a></li>
+                       <li><a>只看专题</a></li>
+                       <li><a>只看文集</a></li>
+                       <li><a>只看推送更新</a></li> 
+                    </ul>
+                  </template>
+              </v-popover>             
+               <nuxt-link to="" class="add-people">
+                   <i class="fa fa-user-plus"></i>
+                   <span>添加关注</span>
+               </nuxt-link>
+             </div>
+               <ul class="follow-list">
+                   <li>
+                       <nuxt-link class="active" to="/u/123">
+                        <div class="avatar">
+                          <img src="~/assets/img/jyq.png">
+                        </div>
+                        <div class="name">
+                            简友圈
+                        </div>
+                       </nuxt-link> 
+                   </li>
+                   <li>
+                       <nuxt-link class="avatar" to="/u/123">
+                        <div class="avatar">
+                            <img src="~/assets/img/default-avatar.jpg">
+                        </div>
+                        <div class="name">
+                            自然科普
+                        </div>
+                       </nuxt-link> 
+                   </li>
+                   <li>
+                       <nuxt-link class="avatar" to="/u/123">
+                        <div class="avatar">
+                            <img src="~/assets/img/default-avatar.jpg">
+                        </div>
+                        <div class="name">
+                            胡七筒
+                        </div>
+                       </nuxt-link> 
+                   </li>
+               </ul>
+            </div>
+           <div class="col-xs-16 main">
                   <div class="list-container">
                         <ul class="note-list">
                             <li class="have-img">
@@ -180,142 +206,108 @@
                         </ul>
                   </div>
                   <a href="#" class="load-more">阅读更多</a>
-              </div>
-              <div class="col-xs-offset-1 col-xs-7 aside">
-                  <div class="row">
-                      <!-- 广告 -->
-                        <div class="board">
-                            <nuxt-link to="/">
-                                <img src="~/assets/img/ad1.png" alt="">
-                            </nuxt-link>
-                            <nuxt-link to="/">
-                                <img src="~/assets/img/ad2.png" alt="">
-                            </nuxt-link>
-                            <nuxt-link to="/">
-                                <img src="~/assets/img/ad3.png" alt="">
-                            </nuxt-link>
-                            <nuxt-link to="/">
-                                <img src="~/assets/img/ad4.png" alt="">
-                            </nuxt-link>
-                        </div>
-                        <!-- 推荐作者 -->
-                        <div class="recommended-author">
-                            <div class="title">
-                                <span>推荐作者</span>
-                                <nuxt-link to="" class="page-change" @click.native="pageChange">
-                                    <i class="fa fa-refresh"></i>
-                                    换一批
-                                </nuxt-link>
-                            </div>
-                            <ul class="recommended-list">
-                                <li>
-                                    <nuxt-link class="avatar" to="/u/123">
-                                        <img src="~/assets/img/default-avatar.jpg" alt="">
-                                    </nuxt-link>
-                                    <a href="#" :class="[a?'follow':'following']" @click="a=!a" @mouseenter="b=!b" @mouseleave="b=!b">
-                                        <i :class="[a?'fa fa-plus':b?'fa fa-close':'fa fa-check']"></i>
-                                        {{a?"关注":b?"取消关注":"已关注"}}
-                                    </a>
-                                    <nuxt-link to="/u/123" class="name">
-                                        简书用户
-                                    </nuxt-link>
-                                    <p>写了1958k字.1.9k喜欢</p>
-                                </li>
-                                <li>
-                                    <nuxt-link class="avatar" to="/u/123">
-                                        <img src="~/assets/img/default-avatar.jpg" alt="">
-                                    </nuxt-link>
-                                    <a href="#" class="follow">
-                                        <i class="fa fa-plus"></i>
-                                        关注
-                                    </a>
-                                    <nuxt-link to="/u/123" class="name">
-                                        简书用户
-                                    </nuxt-link>
-                                    <p>写了1958k字.1.9k喜欢</p>
-                                </li>
-                                <li>
-                                    <nuxt-link class="avatar" to="/u/123">
-                                        <img src="~/assets/img/default-avatar.jpg" alt="">
-                                    </nuxt-link>
-                                    <a href="#" class="follow">
-                                        <i class="fa fa-plus"></i>
-                                        关注
-                                    </a>
-                                    <nuxt-link to="/u/123" class="name">
-                                        简书用户
-                                    </nuxt-link>
-                                    <p>写了1958k字.1.9k喜欢</p>
-                                </li>
-                                <li>
-                                    <nuxt-link class="avatar" to="/u/123">
-                                        <img src="~/assets/img/default-avatar.jpg" alt="">
-                                    </nuxt-link>
-                                    <a href="#" class="follow">
-                                        <i class="fa fa-plus"></i>
-                                        关注
-                                    </a>
-                                    <nuxt-link to="/u/123" class="name">
-                                        简书用户
-                                    </nuxt-link>
-                                    <p>写了1958k字.1.9k喜欢</p>
-                                </li>
-                                <li>
-                                    <nuxt-link class="avatar" to="/u/123">
-                                        <img src="~/assets/img/default-avatar.jpg" alt="">
-                                    </nuxt-link>
-                                    <a href="#" class="follow">
-                                        <i class="fa fa-plus"></i>
-                                        关注
-                                    </a>
-                                    <nuxt-link to="/u/123" class="name">
-                                        简书用户
-                                    </nuxt-link>
-                                    <p>写了1958k字.1.9k喜欢</p>
-                                </li>
-                            </ul>
-                            <nuxt-link to="/" class="find-more">
-                                查看更多
-                                <i class="fa fa-angle-right"></i>
-                            </nuxt-link>
-                        </div>
-                  </div>
-              </div>
-          </div>
+           </div>
+          </div> 
       </div>
   </div>
 </template>
-
 <script>
-import myHeader from "../components/myHeader";
+import myHeader from "~/components/myHeader";
+import Vue from "vue";
+import VTooltip from "v-tooltip";
+Vue.use(VTooltip);
 export default {
-  head: {
-    title: "简书-创作你的创作",
-    meta: [
-      { charset: "utf-8" },
-      { name: "keywords", content: "简书首页" },
-      { name: "description", content: "简书首页" },
-      { name: "author", content: "曹宇" }
-    ]
+  data() {
+    return {
+        name:"关注"
+    };
   },
   components: {
     myHeader
-  },
-  data() {
-    return {
-      name: "首页",
-      count: 0,
-      a: true,
-      b: false
-    };
-  },
-  methods: {
-    pageChange: function() {
-      this.count++;
-      var refresh = document.querySelector(".fa-refresh");
-      refresh.style.transform = "rotate(" + 360 * this.count + "deg)";
-    }
   }
 };
 </script>
-
+<style scoped>
+.aside{
+    width: 218.75px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    margin: 86px 0 0;
+    overflow: auto;
+    border-right: 1px solid #f0f0f0;
+    /* width: 100%;
+    margin: 0; */
+}
+.main{
+    margin-left: 34%;
+}
+.follow-title{
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+.follow-title a{
+    margin-left: 15px;
+}
+.add-people{
+    margin: 0 10px 0 0;
+    font-size: 13px;
+}
+.arrow-top{
+    background: #fff;
+    top: 23px;
+    left: 20px;
+    margin: 0;
+    min-width: 130px;
+    text-align: center;
+    border-color: transparent;
+    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 1); */
+    font-size: 14px;
+}
+.arrow-top a{
+    padding: 10px 20px;
+}
+.arrow-top li>a{
+    display: block;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857;
+    color:#333;
+}
+.arrow-top li a:hover {
+    background-color: #f5f5f5;
+}
+.follow-list{
+    width: 100%;
+}
+.follow-list li{
+    width: 100%;
+    line-height: 20px;
+    font-size: 17px;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+.follow-list li a{
+    padding: 10px 13px;
+    display: block;
+    background-color: transparent;
+}
+.follow-list li a.active {
+  background-color: #f0f0f0;
+}
+.follow-list li a:hover {
+  background-color: #f0f0f0 !important;
+}
+.follow-list li a div {
+  display: inline-block;
+}
+.follow-list li a .avatar {
+  width: 40px;
+  height: 40px;
+  vertical-align: middle;
+  display: inline-block;
+  margin-right: 4px;
+}
+</style>

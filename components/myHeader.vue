@@ -266,6 +266,7 @@ nav .nav-list > li a.active {
 }
 nav .nav-list > li a:hover {
   background-color: #f5f5f5;
+  
 }
 nav .nav-list > li a i {
   margin-right: 5px;
@@ -289,6 +290,7 @@ nav .nav-list .search form .search-input {
   border: 1px solid #eee;
   background-color: #eee;
   border-radius: 40px;
+  transition: width 0.5s;
 }
 nav .nav-list .search form .search-input:focus {
   width: 320px;

@@ -63,13 +63,14 @@ export default {
 
 .emoji {
   border: 1px solid #dcdcdc;
+  margin-left: -20px;
   width: 380px;
   height: 186px;
   bottom: 30px;
   background: #fff;
   z-index: 10;
   padding: 0;
-  // top:30px;
+  // top:10px;
   margin-right: 10px;
   .emoji-controller {
     height: 36px;
